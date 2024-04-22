@@ -12,19 +12,23 @@ def scale_min_max(data):
     :return: scaled list, pd.Series or np.ndarray
     """
 
+
+
+
+    
     # try except block is used to check and return the datatype. If a TypeError occurs, the function breaks up
     try:
         data, output_format = check_return_datatype(data)
     except TypeError as e:
-        return print(e)
+                    return print(e)
 
     # Scale the data between 0 and 1
     scaled_data = (data - np.min(data)) / (np.max(data) - np.min(data))
 
-    if output_format == list:
+        if output_format == list:
         scaled_data = scaled_data.tolist()
     elif output_format == pd.Series:
-        scaled_data = pd.Series(scaled_data)
+                        scaled_data = pd.Series(scaled_data)
 
     return scaled_data
 
